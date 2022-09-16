@@ -25,20 +25,6 @@ def Download_MP4():
     global resolutions
     return render_template('MP4.html', resolutions=resolutions)
 
-@app.route("/spotify-playlist-download")
-def Spotify_playlist_download():
-    return render_template('spotify.html')
-
-@app.route("/spotify/playlist-songs/download", methods=["POST", "GET"])
-def Spotify_playlist_download2():
-    try:
-        url = request.form["URL"]
-        url = url.replace("https://open.spotify.com/playlist/","")
-        Spotify.main(spotify_url_link=url)
-        return render_template('spotify.html')
-    except:
-        return render_template('spotify.html')
-
 @app.route("/Download_MP3")
 def Download_MP3():
     return render_template('MP3.html')
@@ -145,15 +131,22 @@ def download_insta_post():
         logging.exception('Failed download')
         return "Instagram Reel download failed!"
 
+# Spotify
+
+@app.route("/spotify-playlist-download")
+def Spotify_playlist_download():
+    return render_template('spotify.html')
+
+@app.route("/spotify/playlist-songs/download", methods=["POST", "GET"])
+def Spotify_playlist_download2():
+    try:
+        url = request.form["URL"]
+        url = url.replace("https://open.spotify.com/playlist/","")
+        Spotify.main(spotify_url_link=url)
+        return render_template('spotify.html')
+    except:
+        return render_template('spotify.html')
 
 if __name__ == '__main__':
-    webbrowser.open("http://127.0.0.1:5000/")
-    app.run()
-    try:
-        os.remove("rishabh"+"_video"+".mp4")
-    except:
-        try:
-            os.remove("rishabh"+"_post"+".jpg")
-        except:
-            print("not file found")        
+    app.run()    
     

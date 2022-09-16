@@ -40,7 +40,7 @@ BEARER_TOKEN = ""
 
 ### SETTINGS
 
-MIN_VIEW_COUNT = 5000 # 5, 000 views
+MIN_VIEW_COUNT = 100 # 100 views
 MAX_LENGTH = 60 * 10   # 10 minutes
 FAILURE_THRESHOLD = 5 # The number of songs that need to fail before prompting to re-run
 DEBUG = True
