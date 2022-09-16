@@ -116,22 +116,8 @@
 	<div class="form" style="text-align: center;">
 			<form action="/download" method="post">
 				<input type="text" placeholder="Paste YouTube link here..." name="url">
-                      <br><br>
-					  {% for resol in resolutions[0:1] %}
-				             <div class="container">
-                                   <input type="radio" id="{{resol}}" name="resolution" value="{{resol}}" checked>
-								   <label for="{{resol}}"><span class="radio">{{resol}}</span></label>
-							 </div>
-                       {% endfor %}
-					   {% for resolution in resolutions[1:] %}
-				             <div class="container">
-                                   <input type="radio" id="{{resolution}}" name="resolution" value="{{resolution}}">
-								   <label for="{{resolution}}"><span class="radio">{{resolution}} {{filesize}}</span></label>
-							 </div>
-                       {% endfor %}
-
-
-				  <button class="button" style="vertical-align:middle"><span>Download MP4</span></button><br><br><br>
+                      <br>
+		<button class="button" style="vertical-align:middle"><span>Download MP4</span></button><br><br><br>
               </form>
   </div>
 </div>
